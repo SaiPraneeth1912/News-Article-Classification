@@ -1,0 +1,18 @@
+# News Article Classification (RF + TF-IDF, BiLSTM, DistilBERT)
+
+## Backend
+```bash
+cd backend && pip install -r requirements.txt
+mkdir -p data models        # put news.csv (columns: text,label; 6 classes) in data/
+python train_rf.py
+python train_lstm.py
+python train_bert.py
+export JWT_SECRET_KEY="a-long-random-string"
+python app.py               # http://localhost:5000
+```
+## Frontend
+```bash
+cd frontend && npm install && npm run dev
+```
+## API
+POST /api/register, /api/login | GET /api/models, /api/history, /api/analytics | POST /api/predict {text, model: rf|lstm|bert}
